@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function showData() {
+        const res = await fetch("https://data.covid19india.org/data.json");
+        const data = await res.json();
+
+        const d = await data["statewise"];
+console.log(d);
+        document.write(`<table border="1" width="100%">
+        <tr>
+            <th>SR NO</th>
+            <th>STATE NAME</th>
+            <th>CONFIRMED CASES</th>
+            <th>RECOVERED CASES</th>
+            <th>DEATH CASES</th>
+        </tr>`);
+
+        for (i in d) {
+          document.write("<tr>");
+          document.write(
+            `<td>${i}</td><td>${d[i]["state"]}</td><td>${d[i]["confirmed"]}</td><td>${d[i]["recovered"]}</td><td>${d[i]["deaths"]}</td>`
+          );
+          document.write("</tr>");
+        }
+        document.write("</table>");
+      }
+
+      showData();
+    </script>
+  </body>
+</html>

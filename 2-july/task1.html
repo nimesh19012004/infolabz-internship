@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br><br>
+        
+        <label for="city">City:</label><br>
+        <select id="city" name="city" required>
+            <option value="">Select City</option>
+            <option value="New York">New York</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Houston">Houston</option>
+            <option value="Phoenix">Phoenix</option>
+        </select><br><br>
+        
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" required></textarea><br><br>
+        
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</div>
+
+<div class="table-container" id="tableContainer" style="display:none;">
+    <h2>Submitted Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody id="formData">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function submitForm() {
+        const form = document.getElementById('registrationForm');
+        const tableContainer = document.getElementById('tableContainer');
+        const formData = document.getElementById('formData');
+        
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const gender = form.gender.value;
+        const city = form.city.value;
+        const address = form.address.value;
+        
+        const newRow = `
+            <tr>
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>${gender}</td>
+                <td>${city}</td>
+                <td>${address}</td>
+            </tr>
+        `;
+        
+        formData.innerHTML = newRow;
+        tableContainer.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

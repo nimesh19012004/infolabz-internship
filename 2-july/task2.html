@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      Date:
+      <input type="text" name="date" id="date" required />
+      <button type="button" onclick="append()">Submit</button>
+    </form>
+    <div id="detail"></div>
+    
+    <script>
+      async function append() {
+        const date = document.getElementById("date").value;
+        console.log(date);
+        const res = await fetch("https://data.covid19india.org/data.json");
+        const data = await res.json();
+        const cases_time_series = await data["cases_time_series"];
+
+        for (let i = 0; i < cases_time_series.length; i++) {
+          if (cases_time_series[i].date === date) {
+            
+    const temp=document.createElement('p');
+    temp.innerHTML=`<table border="1" >
+        <tr>
+            <td>NEW CASES</td>
+            <td>${cases_time_series[i].dailyconfirmed}</td>
+        </tr>
+         <tr>
+            <td>NEW DEATHS</td>
+            <td>${cases_time_series[i].dailydeceased}</td>
+        </tr>
+
+    </table>`
+    const detail=document.getElementById('detail');
+    detail.appendChild(temp);
+    console.log("hello");
+
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

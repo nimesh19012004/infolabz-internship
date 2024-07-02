@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        no:
+        <input type="text" name="no" id="no">
+        <br>
+        <button onclick="Find()">Submit</button>
+    </form>
+    <script>
+        function Find(){
+            const no=parseInt(document.getElementById("no").value);
+            if(no%2===0){
+                alert("even")
+            }else{
+                alert("odd")
+            }
+        }
+    </script>
+</body>
+</html>

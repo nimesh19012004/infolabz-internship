@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    Code:
+      <input type="text" name="code" id="code" required />
+      <button type="button" onclick="append()">Submit</button>
+    </form>
+    <div id="detail"></div>
+
+    <script>
+      async function append() {
+        const code = parseInt(document.getElementById("code").value);
+        const res = await fetch("https://api.mfapi.in/mf");
+        const data = await res.json();
+        console.log(data);
+        let found=0;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].schemeCode ===code) {
+           const p=document.createElement('p');
+           p.innerHTML=`${data[i].schemeName}`
+           document.getElementById('detail').appendChild(p);
+           found=1;
+           break;
+          }
+        }
+        if(!found){
+         const p=document.createElement('p');
+           p.innerHTML=`Not Found`
+           document.getElementById('detail').appendChild(p);
+        }
+      }
+    </script>
+</body>
+</html>
