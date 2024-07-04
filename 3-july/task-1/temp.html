@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>SR NO</th>
+        <th>UNIVERSITY NAME</th>
+        <th>STATE-PROVINCE</th>
+        <th>WEBSITE LINK</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <script>
+      async function temp() {
+        const res = await fetch(
+          "http://universities.hipolabs.com/search?country=india"
+        );
+        const data = await res.json();
+        const line=`<table border='1'>
+        <tr>
+            <th>SR NO</th>
+            <th>UNIVERSITY NAME</th>
+            <th>STATE-PROVINCE</th>
+            <th>WEBSITE LINK</th>
+        </tr>`
+        document.write(line);
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+          const m = `
+        <tr>
+            <td>${i+1}</td>
+            <td>${data[i].name}</td>
+            <td>${data[i]['state-province']}</td>
+            <td>${data[i].web_pages[0]}</td>
+        </tr>`;
+         document.write(m);
+        }
+        const l=`</table>`
+        document.write(l);
+      }
+      temp();
+    </script>
+  </body>
+</html>

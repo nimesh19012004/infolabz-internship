@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        spacecraft:<input type="text" id="sc">
+        <button type="button" onclick="find()">find</button>
+    </form>
+    <script>
+
+        async function find(){
+            const n=document.getElementById('sc').value;
+             const res = await fetch(
+          "https://isro.vercel.app/api/spacecrafts"
+        );
+        const data = await res.json();
+
+        const spacecrafts=await data.spacecrafts;
+
+        let found=0;
+        for(let i=0;i<spacecrafts.length;i++){
+            if(spacecrafts[i].name===n){
+                alert("found");
+                found=1;
+                break;
+            }
+        }
+
+        if(!found){
+            alert("not found");
+        }
+        }
+        
+       
+    </script>
+</body>
+</html>
