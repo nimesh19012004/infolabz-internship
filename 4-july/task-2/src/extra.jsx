@@ -6,7 +6,7 @@ import { Login } from './practice'
 const First = () => {
   return (
     <div>
-      
+      first 
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import App, { Second } from "./App";
-import First from "./extra";
+import App from "./App";
+import First, { Second } from "./extra";
 import Notification from "./practice";
 
 const Mycom = () => {
@@ -8,7 +8,9 @@ const Mycom = () => {
 };
 
 export const Compone = () => {
-  return <div>second</div>;
+  return <div>
+    <Second/>
+  </div>;
 };
 
 export const Comptwo=()=>{
