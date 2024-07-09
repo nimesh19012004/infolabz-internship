@@ -11,7 +11,11 @@ const CustomCard = ({props}) => {
       <div style={{ padding: "10px", backgroundColor: "lightgray" }}>
         <Badge bg="primary">{props.status}</Badge>
       </div>
-      <Card.Img variant="top" src={props.imageURL} />
+      <Card.Img
+        variant="top"
+        src={props.imageURL}
+        style={{ height: "300px", objectFit: "cover" }}
+      />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.description}</Card.Text>

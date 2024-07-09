@@ -12,7 +12,7 @@ const [cardData,setCardData]=useState([]);
       try {
         const res = await fetch(`https://inshorts.vercel.app/news/top`);
         const ans = await res.json();
-        const data = ans.data;
+        const data = ans.data.articles;
 
         setCardData(data);
       } catch (error) {
