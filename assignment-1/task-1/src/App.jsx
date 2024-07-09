@@ -6,7 +6,7 @@ function App() {
   let cardsDetail = {
     status: "now showing",
     imageURL:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt15392282%2F&psig=AOvVaw2lXSPj2BVPQEot2AKQLSvC&ust=1720537641110000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMD09ajcl4cDFQAAAAAdAAAAABAE",
+      "https://images.news18.com/ibnlive/uploads/2023/11/merry-christmas-new-release-date-2023-11-0dba3e638d74322d902a92d61870970c.jpg",
     title: "Merry Cristmas",
     description:
       " Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
